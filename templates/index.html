@@ -65,7 +65,7 @@
           <p class="success">✓ QR code generated successfully</p>
           <a class="download"
              href="data:image/png;base64,{{ qr_image }}"
-             download="qr-studio.png">↓ Download PNG</a>
+             download="qr-studio-{{ timestamp }}.png">↓ Download PNG</a>
         {% else %}
           <div class="placeholder">
             <div class="placeholder-icon">▦</div>

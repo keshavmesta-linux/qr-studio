@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, render_template, request
 import qrcode
 from io import BytesIO
@@ -9,6 +10,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     qr_image = None
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     error = None
     content = ""
     fill_color = "#172554"
@@ -53,6 +55,7 @@ def index():
     return render_template(
         "index.html",
         qr_image=qr_image,
+        timestamp=timestamp,
         error=error,
         content=content,
         color=fill_color,
